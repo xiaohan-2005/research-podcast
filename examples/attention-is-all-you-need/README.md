@@ -12,15 +12,15 @@ The goal is not to retell the paper line by line. The goal is to preserve the pa
 | --- | --- |
 | [`source_map.json`](source_map.json) | Stable source IDs tied to sections, equations, tables and interpretations |
 | [`script.json`](script.json) | Two-host dialogue where factual and interpretive turns carry `source_ids` |
-| [`generate_demo.py`](generate_demo.py) | Reproducible 35-second local demo that needs no TTS API key |
-| [`demo-waveform.svg`](demo-waveform.svg) | Waveform preview generated from the actual demo audio |
+| [`generate_demo.py`](generate_demo.py) | Reproducible under-a-minute local demo that needs no TTS API key |
+| [`demo-waveform-54s.svg`](demo-waveform-54s.svg) | Waveform preview measured from the reproducible demo audio |
 | [`../../scripts/validate_script.py`](../../scripts/validate_script.py) | Deterministic check that evidence-bearing turns point to known sources |
 
-## Hear the idea in 35 seconds
+## Hear the idea in under a minute
 
-<img src="demo-waveform.svg" width="100%" alt="34.8-second two-host Transformer demo waveform" />
+<img src="demo-waveform-54s.svg" width="100%" alt="54.3-second two-host Transformer demo waveform" />
 
-The repository includes a zero-key fallback demo generator. It selects evidence-grounded turns from the full case script and uses two local eSpeak voices so anyone can reproduce the sample without creating an account or adding a secret.
+The repository includes a zero-key fallback demo generator. It selects six evidence-grounded turns from the full case script and uses two local eSpeak voices so anyone can reproduce the sample without creating an account or adding a secret. On the reference run used for the waveform above, the output is **54.3 seconds**.
 
 From the repository root:
 
