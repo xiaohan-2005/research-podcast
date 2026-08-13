@@ -1,0 +1,98 @@
+[
+  {
+    "speaker": "A",
+    "text": "If you had to explain the Transformer in one move, what changed?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The paper's central move is to build the sequence-transduction architecture around attention rather than recurrence or convolution. That is the thesis the authors state in the abstract and develop through the architecture section.",
+    "source_ids": ["S01"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "So instead of stepping through a sequence one hidden state at a time, we can think of the model as routing information by learned relevance across positions?",
+    "source_ids": ["S08"],
+    "claim_type": "interpretation"
+  },
+  {
+    "speaker": "B",
+    "text": "That's a useful mental model, as long as we label it as interpretation. The paper itself gives a precise mechanism: scaled dot-product attention computes softmax of QK-transpose divided by the square root of d-k, then multiplies by V.",
+    "source_ids": ["S02", "S08"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "Why the scaling term? It looks tiny, but it seems deliberate.",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The authors explain that large dot products can push softmax into regions with very small gradients, so dividing by the square root of the key dimension controls that effect.",
+    "source_ids": ["S02"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "And one attention calculation is not the whole story. The base model uses multiple heads, right?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "Yes. The base configuration uses eight heads, with d-k and d-v both equal to 64. The motivation is that different heads can attend to information from different learned representation subspaces at different positions.",
+    "source_ids": ["S03"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "Removing recurrence creates another problem though: where does word order come from?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The model adds positional encodings to the embeddings because the architecture itself has neither recurrence nor convolution. The paper uses sinusoidal encodings and reports a learned-position variant performing similarly in its ablation.",
+    "source_ids": ["S04"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "The computational trade-off is one reason this architecture mattered. What does the paper actually claim there?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "Table 1 lists full self-attention with constant sequential operations and constant maximum path length, while recurrent layers require both to grow linearly with sequence length. Self-attention does pay a quadratic-in-sequence-length term in per-layer complexity, so the comparison is a trade-off, not a claim of unconditional superiority.",
+    "source_ids": ["S05"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "What keeps us from treating the architecture alone as the explanation for the reported results?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The result sits inside a concrete training setup: about 4.5 million English-German sentence pairs, eight P100 GPUs, 100,000 base-model training steps taking about 12 hours, and a 4,000-step warmup schedule. Those details are part of the evidence boundary.",
+    "source_ids": ["S06"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "And the headline translation number in this paper version?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The Transformer big model reports 28.4 BLEU on WMT14 English-to-German. The safe takeaway is not simply that attention wins everywhere; it is that this attention-only architecture achieved a strong reported result under the paper's stated evaluation and training setup.",
+    "source_ids": ["S07"],
+    "claim_type": "fact"
+  }
+]
