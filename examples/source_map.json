@@ -1,0 +1,16 @@
+[
+  {
+    "id": "S01",
+    "source": "examples/source.md",
+    "location": "paragraph 1",
+    "summary": "The same students used ordinary notes in one unit and retrieval practice in another.",
+    "evidence": "The comparison used the same group across two units rather than random assignment."
+  },
+  {
+    "id": "S02",
+    "source": "examples/source.md",
+    "location": "paragraph 1",
+    "summary": "Average quiz performance was higher under retrieval practice, but unit difficulty was uncontrolled.",
+    "evidence": "The instructor treated the result as suggestive, not causal."
+  }
+]
