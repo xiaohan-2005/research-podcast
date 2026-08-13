@@ -1,0 +1,26 @@
+show:
+  name: "Research Podcast"
+  language: "zh-CN"
+  default_mode: "deep-dive"
+  target_minutes: 10
+
+hosts:
+  A:
+    name: "Kai"
+  B:
+    name: "Lin"
+
+tts:
+  provider: "fishaudio"
+  model: "s2-pro"
+  format: "mp3"
+  bitrate_kbps: 128
+  temperature: 0.7
+  top_p: 0.7
+  host_a_voice_id: ""
+  host_b_voice_id: ""
+  pause_ms: 260
+
+output:
+  data_dir: "~/.research-podcast"
+  keep_chunks: false
