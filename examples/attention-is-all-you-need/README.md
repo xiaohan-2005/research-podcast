@@ -12,9 +12,15 @@ The goal is not to retell the paper line by line. The goal is to preserve the pa
 | --- | --- |
 | [`source_map.json`](source_map.json) | Stable source IDs tied to sections, equations, tables and interpretations |
 | [`script.json`](script.json) | Two-host dialogue where factual and interpretive turns carry `source_ids` |
+| [`generate_demo.py`](generate_demo.py) | Reproducible 35-second local demo that needs no TTS API key |
+| [`demo-waveform.svg`](demo-waveform.svg) | Waveform preview generated from the actual demo audio |
 | [`../../scripts/validate_script.py`](../../scripts/validate_script.py) | Deterministic check that evidence-bearing turns point to known sources |
 
-## 30-second demo
+## Hear the idea in 35 seconds
+
+<img src="demo-waveform.svg" width="100%" alt="34.8-second two-host Transformer demo waveform" />
+
+The repository includes a zero-key fallback demo generator. It selects evidence-grounded turns from the full case script and uses two local eSpeak voices so anyone can reproduce the sample without creating an account or adding a secret.
 
 From the repository root:
 
@@ -30,14 +36,26 @@ Expected result:
 Validation passed.
 ```
 
-Then configure two TTS voice IDs and run:
+Then, on a machine with `espeak`, `ffmpeg` and the Python requirements installed:
+
+```bash
+python examples/attention-is-all-you-need/generate_demo.py
+```
+
+This writes:
+
+```text
+examples/attention-is-all-you-need/transformer-demo.mp3
+```
+
+The no-key version is deliberately a reproducibility fallback, not the target voice quality. For polished audio, configure two TTS voice IDs and run the production path:
 
 ```bash
 python scripts/speak.py \
   --script examples/attention-is-all-you-need/script.json
 ```
 
-The audio layer asks for the provider credential at runtime and writes the MP3 under `~/.research-podcast/episodes/`.
+The production audio layer asks for the provider credential at runtime and writes the MP3 under `~/.research-podcast/episodes/`.
 
 ## What the evidence layer changes
 
