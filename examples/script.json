@@ -1,0 +1,26 @@
+[
+  {
+    "speaker": "A",
+    "text": "What does this small course example actually tell us?",
+    "source_ids": [],
+    "claim_type": "question"
+  },
+  {
+    "speaker": "B",
+    "text": "The average quiz score was higher in the unit that used retrieval-practice questions, but the design did not randomize students or control unit difficulty.",
+    "source_ids": ["S01", "S02"],
+    "claim_type": "fact"
+  },
+  {
+    "speaker": "A",
+    "text": "So the result is interesting, but it is not enough to establish causation.",
+    "source_ids": ["S02"],
+    "claim_type": "interpretation"
+  },
+  {
+    "speaker": "B",
+    "text": "Exactly. A stronger follow-up would need a design that separates the review method from differences between the two units.",
+    "source_ids": ["S01", "S02"],
+    "claim_type": "interpretation"
+  }
+]
