@@ -1,0 +1,58 @@
+[
+  {
+    "id": "S01",
+    "source_label": "Attention Is All You Need",
+    "location": "Abstract; Sections 1 and 3",
+    "summary": "The paper proposes the Transformer, an attention-based sequence transduction architecture that removes recurrence and convolution from the main model.",
+    "evidence": "Central architecture claim reported by the authors."
+  },
+  {
+    "id": "S02",
+    "source_label": "Attention Is All You Need",
+    "location": "Section 3.2.1, Equation 1",
+    "summary": "Scaled dot-product attention is defined as softmax(QK^T / sqrt(d_k))V.",
+    "evidence": "Exact attention equation and surrounding explanation."
+  },
+  {
+    "id": "S03",
+    "source_label": "Attention Is All You Need",
+    "location": "Section 3.2.2",
+    "summary": "The base Transformer uses eight attention heads with d_k = d_v = 64, allowing attention over different learned representation subspaces.",
+    "evidence": "Reported multi-head configuration and motivation."
+  },
+  {
+    "id": "S04",
+    "source_label": "Attention Is All You Need",
+    "location": "Section 3.5; Table 3 row E",
+    "summary": "Because the architecture has neither recurrence nor convolution, positional encodings are added to embeddings; the paper reports similar results for learned positional embeddings.",
+    "evidence": "Reported positional-encoding design and ablation."
+  },
+  {
+    "id": "S05",
+    "source_label": "Attention Is All You Need",
+    "location": "Section 4; Table 1",
+    "summary": "Full self-attention is listed with O(n^2 d) per-layer complexity, O(1) sequential operations and O(1) maximum path length, while recurrent layers require O(n) sequential operations and O(n) maximum path length.",
+    "evidence": "Complexity and dependency-path comparison from Table 1."
+  },
+  {
+    "id": "S06",
+    "source_label": "Attention Is All You Need",
+    "location": "Sections 5.1 to 5.3",
+    "summary": "The WMT14 English-German training set contains about 4.5 million sentence pairs; training used eight NVIDIA P100 GPUs; the base model trained for 100,000 steps in about 12 hours; warmup used 4,000 steps.",
+    "evidence": "Reported data, hardware and optimization context."
+  },
+  {
+    "id": "S07",
+    "source_label": "Attention Is All You Need",
+    "location": "Section 6.1; Table 2",
+    "summary": "The Transformer big model reports 28.4 BLEU on WMT14 English-to-German under the paper's evaluation setup.",
+    "evidence": "Headline translation result from the paper."
+  },
+  {
+    "id": "S08",
+    "source_label": "Demo interpretation",
+    "location": "Derived from Sections 1 to 4",
+    "summary": "A useful explanatory shorthand is that the architecture replaces sequential recurrence with global content-dependent routing; this is interpretation, not an author quotation.",
+    "evidence": "Presenter interpretation kept separate from reported claims."
+  }
+]
