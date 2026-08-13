@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the 35-second Transformer demo without an API key.
+"""Generate the under-a-minute Transformer demo without an API key.
 
 Requires `espeak`, `ffmpeg`, and `pydub`. This is a reproducible fallback
 for the repository demo; production audio uses the configured TTS provider.
@@ -50,9 +50,10 @@ def main() -> int:
                 audio += AudioSegment.silent(170 if i % 2 else 220)
             audio += segment.fade_in(15).fade_out(30)
 
+        audio = audio.fade_in(80).fade_out(400)
         out = HERE / "transformer-demo.mp3"
-        audio.fade_in(80).fade_out(400).export(out, format="mp3", bitrate="96k")
-        print(out)
+        audio.export(out, format="mp3", bitrate="96k")
+        print(f"{out} ({len(audio) / 1000:.1f}s)")
     return 0
 
 
